@@ -9,6 +9,19 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        hm: hm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <100>;
+            quick-tap-ms = <200>;
+            flavor = "tap-unless-interrupted";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -20,10 +33,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB  &kp Q           &kp W           &kp F        &kp P               &kp B        &kp J    &kp L                &kp U              &kp Y           &kp SEMICOLON    &kp BSPC
-&kp TAB  &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LSHFT S  &mt LEFT_CONTROL T  &kp G        &kp M    &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt LEFT_ALT I  &mt RIGHT_GUI O  &kp SQT
-&none    &kp Z           &kp X           &kp C        &kp D               &kp V        &kp K    &kp H                &kp COMMA          &kp DOT         &kp FSLH         &kp ESC
-                                         &to 1        &none               &kp SPACE    &kp RET  &mo 2                &kp RALT
+&kp TAB  &kp Q           &kp W           &kp F        &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SEMICOLON    &kp BSPC
+&kp TAB  &hm LEFT_GUI A  &hm LEFT_ALT R  &hm LSHFT S  &hm LCTRL T  &kp G        &kp M    &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm RIGHT_GUI O  &kp SQT
+&none    &kp Z           &kp X           &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH         &kp ESC
+                                         &tog 1       &none        &kp SPACE    &kp RET  &mo 2        &kp RALT
             >;
         };
 
@@ -38,7 +51,7 @@
 &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5       &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
 &bt BT_CLR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
 &kp LSHFT   &bt BT_PRV    &bt BT_NXT    &trans        &trans        &trans       &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE    &kp RET   &trans    &kp RALT
+                                        &trans        &trans        &kp SPACE    &kp RET   &trans    &kp RALT
             >;
         };
 
