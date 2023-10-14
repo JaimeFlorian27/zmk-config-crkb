@@ -12,13 +12,13 @@
     behaviors {
         hm: hm {
             compatible = "zmk,behavior-hold-tap";
-            label = "HM";
+            label = "Homerow mods";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
-            quick-tap-ms = <200>;
-            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "balanced";
         };
     };
 
@@ -36,7 +36,7 @@
 &kp TAB  &kp Q           &kp W           &kp F        &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SEMICOLON    &kp BSPC
 &kp TAB  &hm LEFT_GUI A  &hm LEFT_ALT R  &hm LSHFT S  &hm LCTRL T  &kp G        &kp M    &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm RIGHT_GUI O  &kp SQT
 &none    &kp Z           &kp X           &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH         &kp ESC
-                                         &tog 1       &none        &kp SPACE    &kp RET  &mo 2        &kp RALT
+                                         &none        &mo 1        &kp SPACE    &kp RET  &mo 2        &kp RALT
             >;
         };
 
