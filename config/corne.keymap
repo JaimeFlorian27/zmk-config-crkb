@@ -89,7 +89,7 @@
         tmux_v_split: tmux_v_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(A) &kp PIPE>;
+            bindings = <&kp LC(A) &kp BACKSLASH>;
             label = "TMUX_V_SPLIT";
         };
         tmux_h_spilt: tmux_h_spilt {
