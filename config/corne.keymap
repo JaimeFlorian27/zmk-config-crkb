@@ -115,9 +115,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp F1               &kp F2                  &kp F3               &kp F4               &kp F5              &kp F6        &kp F7         &kp N8                 &kp N9            &kp N0            &trans
-&trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &trans
-&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &kp MINUS      &kp EQUAL              &kp BACKSLASH     &trans            &trans
+&trans  &kp F1               &kp F2                  &kp F3               &kp F4               &kp F5              &kp F6        &kp F7         &kp F8                 &kp F9            &kp F10           &trans
+&trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
+&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &kp MINUS      &kp EQUAL              &kp BACKSLASH     &trans            &kp F12
                                                      &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
             >;
         };
