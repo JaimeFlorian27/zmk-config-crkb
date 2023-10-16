@@ -124,8 +124,8 @@
 
         nav {
             bindings = <
-&trans  &trans  &trans  &trans         &trans         &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
-&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
+&trans  &trans  &trans  &trans         &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
 &trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp HOME   &trans  &trans
                         &trans         &trans         &trans    &trans          &trans                &trans
             >;
