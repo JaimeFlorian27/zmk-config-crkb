@@ -42,6 +42,51 @@
             #binding-cells = <0>;
             bindings = <&bt BT_NXT>, <&bt BT_NXT>, <&none>, <&bt BT_CLR>;
         };
+        gtm: gtm {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Grave tilde modifier";
+            bindings = <&kp GRAVE>, <&kp TILDE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+        shift_caps: shift_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SHIFT_CAPS";
+            #binding-cells = <0>;
+            bindings = <&sk LEFT_SHIFT>, <&kp CAPSLOCK>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        gaming_combo {
+            bindings = <&tog 3>;
+            key-positions = <40 37>;
+            layers = <0>;
+        };
+    };
+
+    macros {
+        tmux_v_split: tmux_v_split {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(A) &kp PIPE>;
+            label = "TMUX_V_SPLIT";
+        };
+        tmux_h_spilt: tmux_h_spilt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(A) &kp MINUS>;
+            label = "TMUX_H_SPILT";
+        };
+        tmux_zoom: tmux_zoom {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(A) &kp Z>;
+            label = "TMUX_ZOOM";
+        };
     };
 
     keymap {
@@ -56,9 +101,9 @@
 
             bindings = <
 &kp TAB  &kp Q            &kp W            &kp F         &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &kp BSPC
-&kp TAB  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
+&none    &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
 &none    &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                           &mo 3         &mo 1              &kp SPACE    &kp RET  &mo 2         &kp RALT
+                                           &shift_caps   &tog 1             &kp SPACE    &kp RET  &mo 2         &none
             >;
         };
 
@@ -72,32 +117,26 @@
             bindings = <
 &trans  &kp F1               &kp F2                  &kp F3               &kp F4               &kp F5              &kp F6        &kp F7         &kp N8                 &kp N9            &kp N0            &trans
 &trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &trans
-&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gresc        &gresc         &trans                 &trans            &trans            &trans
+&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &kp MINUS      &kp EQUAL              &kp BACKSLASH     &trans            &trans
                                                      &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
             >;
         };
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp HOME   &trans  &trans
-                        &trans  &trans  &trans    &trans          &trans                &trans
+&trans  &trans  &trans  &trans         &trans         &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
+&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp HOME   &trans  &trans
+                        &trans         &trans         &trans    &trans          &trans                &trans
             >;
         };
 
-        raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
+        layer_4 {
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &none     &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
+&kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
+&kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &trans  &trans  &trans    &trans  &trans  &kp LGUI
             >;
         };
     };
