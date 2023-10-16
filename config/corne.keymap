@@ -64,7 +64,7 @@
         gaming_combo {
             bindings = <&tog 3>;
             key-positions = <40 37>;
-            layers = <0>;
+            layers = <0 3 1 2>;
         };
     };
 
@@ -103,11 +103,11 @@
 &kp TAB  &kp Q            &kp W            &kp F         &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &kp BSPC
 &none    &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
 &none    &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                           &shift_caps   &tog 1             &kp SPACE    &kp RET  &mo 2         &none
+                                           &shift_caps   &tog 1             &kp SPACE    &kp RET  &tog 2        &none
             >;
         };
 
-        lower_layer {
+        numbers {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -122,7 +122,7 @@
             >;
         };
 
-        layer_3 {
+        nav {
             bindings = <
 &trans  &trans  &trans  &trans         &trans         &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
 &trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
@@ -131,7 +131,7 @@
             >;
         };
 
-        layer_4 {
+        gaming {
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
 &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
