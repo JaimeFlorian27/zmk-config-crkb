@@ -120,7 +120,7 @@
 &kp TAB  &kp Q            &kp W            &kp F         &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &backspace
 &none    &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
 &none    &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                           &shift_caps   &htl 1 1           &kp SPACE    &kp RET  &htl 1 1      &none
+                                           &shift_caps   &htl 1 1           &kp SPACE    &kp RET  &htl 2 2      &none
             >;
         };
 
