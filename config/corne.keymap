@@ -40,7 +40,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "Bluetooth tap dance";
             #binding-cells = <0>;
-            bindings = <&bt BT_NXT>, <&bt BT_NXT>, <&none>, <&bt BT_CLR>;
+            bindings = <&bt BT_NXT>, <&bt BT_PRV>, <&none>, <&bt BT_CLR>;
         };
         gtm: gtm {
             compatible = "zmk,behavior-mod-morph";
@@ -166,7 +166,7 @@
 &kp TAB  &kp Q            &kp W            &kp F         &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &backspace
 &none    &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
 &none    &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                           &shift_caps   &htl 2 2           &kp SPACE    &kp RET  &htl 1 1      &none
+                                           &shift_caps   &htl 2 2           &kp SPACE    &kp RET  &htl 1 1      &mo 4
             >;
         };
 
@@ -178,18 +178,18 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
-&trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
-&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &kp BACKSLASH     &trans            &kp F12
-                                                     &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
+&trans     &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
+&kp GRAVE  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
+&btd       &kp TILDE            &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &trans            &trans            &kp F12
+                                                        &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &trans          &kp HOME        &kp END       &none      &trans  &trans
+&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &kp LC(H)       &kp LC(J)       &kp LC(K)     &kp LC(L)  &trans  &trans
 &trans  &trans  &trans  &trans         &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &trans          &trans        &trans     &trans  &trans
+&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &kp HOME        &kp END       &trans     &trans  &trans
                         &trans         &trans         &trans    &trans          &trans          &trans
             >;
         };
@@ -203,12 +203,12 @@
             >;
         };
 
-        layer_4 {
+        function {
             bindings = <
-&kp  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
-&kp  &kp              &kp          &kp       &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
-&kp  &kp              &kp          &kp       &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
-                                   &kp       &kp  &kp    &kp  &kp  &kp
+&trans  &trans  &trans  &trans  &trans  &trans    &trans   &trans   &trans   &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6   &kp F7   &kp F7   &kp F8  &kp F9  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp F10  &kp F11  &kp F12  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans   &trans   &trans
             >;
         };
     };
