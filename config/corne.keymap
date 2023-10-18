@@ -83,6 +83,52 @@
             key-positions = <40 37>;
             layers = <0 3 1 2>;
         };
+
+        underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <16 19>;
+            layers = <0 1 2 3>;
+        };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <4 7>;
+        };
+
+        equals {
+            bindings = <&kp EQUAL>;
+            key-positions = <28 31>;
+        };
+
+        l_parenthesis {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <15 20>;
+        };
+
+        l_bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <3 8>;
+        };
+
+        l_brace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <27 32>;
+        };
+
+        r_parenthesis {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <17 18>;
+        };
+
+        r_bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <5 6>;
+        };
+
+        r_brace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <29 30>;
+        };
     };
 
     macros {
@@ -132,19 +178,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp F1               &kp F2                  &kp F3               &kp F4               &kp F5              &kp F6        &kp F7         &kp F8                 &kp F9            &kp F10           &trans
+&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
 &trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
-&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &kp MINUS      &kp EQUAL              &kp BACKSLASH     &trans            &kp F12
+&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &kp BACKSLASH     &trans            &kp F12
                                                      &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp END    &trans  &trans
-&trans  &trans  &trans  &trans         &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp HOME   &trans  &trans
-                        &trans         &trans         &trans    &trans          &trans                &trans
+&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &trans          &kp HOME        &kp END       &none      &trans  &trans
+&trans  &trans  &trans  &trans         &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &trans          &trans        &trans     &trans  &trans
+                        &trans         &trans         &trans    &trans          &trans          &trans
             >;
         };
 
@@ -154,6 +200,15 @@
 &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
 &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
                          &trans  &trans  &trans    &trans  &trans  &kp LGUI
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&kp  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
+&kp  &kp              &kp          &kp       &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
+&kp  &kp              &kp          &kp       &kp  &kp    &kp  &kp  &kp  &kp  &kp  &kp
+                                   &kp       &kp  &kp    &kp  &kp  &kp
             >;
         };
     };
