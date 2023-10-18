@@ -137,12 +137,12 @@
 
         pipe {
             bindings = <&kp PIPE>;
-            key-positions = <4 7>;
+            key-positions = <3 8>;
         };
 
         backslash {
             bindings = <&kp BACKSLASH>;
-            key-positions = <3 8>;
+            key-positions = <2 9>;
         };
     };
 
