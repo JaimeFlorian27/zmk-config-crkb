@@ -67,7 +67,7 @@
         htl_nav: htl {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold tap layer";
-            bindings = <&mo>, <&tap_dance_nav>;
+            bindings = <&mo>, <&sl>;
 
             #binding-cells = <2>;
             flavor = "balanced";
@@ -95,7 +95,7 @@
         htl_num: htl_num {
             compatible = "zmk,behavior-hold-tap";
             label = "HTL_NUM";
-            bindings = <&mo>, <&tap_dance_num>;
+            bindings = <&mo>, <&sl>;
 
             #binding-cells = <2>;
             flavor = "balanced";
@@ -226,7 +226,7 @@
 &kp TAB    &kp Q            &kp W            &kp F              &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &backspace
 &kp GRAVE  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
 &kp TILDE  &kp Z            &kp X            &terminal_nav 2 C  &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                             &shift_caps        &htl_nav 3 0       &kp SPACE    &kp RET  &htl_num 1 0  &mo 4
+                                             &shift_caps        &htl_nav 3 3       &kp SPACE    &kp RET  &htl_num 1 1  &mo 4
             >;
         };
 
