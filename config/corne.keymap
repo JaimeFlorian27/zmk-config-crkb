@@ -64,13 +64,13 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
-        htl: htl {
+        htl_nav: htl {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold tap layer";
-            bindings = <&mo>, <&sl>;
+            bindings = <&mo>, <&tap_dance_nav>;
 
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
         };
         terminal_nav: terminal_nav {
@@ -86,17 +86,26 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 21 20>;
         };
-        tap_dance_num: tap_dance_num {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_NUM";
-            #binding-cells = <0>;
-            bindings = <&htl 1 1>, <&tog 1>;
-        };
         tap_dance_nav: tap_dance_nav {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NAV";
             #binding-cells = <0>;
-            bindings = <&htl 3 3>, <&tog 3>;
+            bindings = <&htl_nav 3 3>, <&tog 3>;
+        };
+        htl_num: htl_num {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTL_NUM";
+            bindings = <&mo>, <&tap_dance_num>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+        };
+        tap_dance_num: tap_dance_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NUM";
+            #binding-cells = <0>;
+            bindings = <&htl_nav 1 3>, <&tog 1>;
         };
     };
 
@@ -214,10 +223,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q            &kp W            &kp F              &kp P              &kp B        &kp J    &kp L           &kp U         &kp Y            &kp SEMICOLON  &backspace
-&kp GRAVE  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N    &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
-&kp TILDE  &kp Z            &kp X            &terminal_nav 2 C  &kp D              &kp V        &kp K    &kp H           &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                             &shift_caps        &tap_dance_nav     &kp SPACE    &kp RET  &tap_dance_num  &mo 4
+&kp TAB    &kp Q            &kp W            &kp F              &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &backspace
+&kp GRAVE  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
+&kp TILDE  &kp Z            &kp X            &terminal_nav 2 C  &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
+                                             &shift_caps        &htl_nav 3 0       &kp SPACE    &kp RET  &htl_num 1 0  &mo 4
             >;
         };
 
