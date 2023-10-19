@@ -67,11 +67,36 @@
         htl: htl {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold tap layer";
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&sl>;
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
+        };
+        terminal_nav: terminal_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TERMINAL_NAV";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <18 19 21 20>;
+        };
+        tap_dance_num: tap_dance_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NUM";
+            #binding-cells = <0>;
+            bindings = <&htl 1 1>, <&tog 1>;
+        };
+        tap_dance_nav: tap_dance_nav {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NAV";
+            #binding-cells = <0>;
+            bindings = <&htl 3 3>, <&tog 3>;
         };
     };
 
@@ -79,70 +104,81 @@
         compatible = "zmk,combos";
 
         gaming_combo {
-            bindings = <&tog 3>;
+            bindings = <&tog 5>;
             key-positions = <40 37>;
-            layers = <0 3 1 2>;
+            require-prior-idle-ms = <150>;
         };
 
         underscore {
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 19>;
-            layers = <0 1 2 3>;
+            require-prior-idle-ms = <150>;
         };
 
         minus {
             bindings = <&kp MINUS>;
             key-positions = <4 7>;
+            require-prior-idle-ms = <150>;
         };
 
         equals {
             bindings = <&kp EQUAL>;
             key-positions = <28 31>;
+            require-prior-idle-ms = <150>;
         };
 
         l_parenthesis {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <15 20>;
+            require-prior-idle-ms = <150>;
         };
 
         l_bracket {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <14 21>;
+            require-prior-idle-ms = <150>;
         };
 
         l_brace {
             bindings = <&kp LEFT_BRACE>;
             key-positions = <13 22>;
+            require-prior-idle-ms = <150>;
         };
 
         r_parenthesis {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <27 32>;
+            require-prior-idle-ms = <150>;
         };
 
         r_bracket {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <26 33>;
+            require-prior-idle-ms = <150>;
         };
 
         r_brace {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <34 25>;
+            require-prior-idle-ms = <150>;
         };
 
         plus {
             bindings = <&kp PLUS>;
             key-positions = <5 6>;
+            require-prior-idle-ms = <150>;
         };
 
         pipe {
             bindings = <&kp PIPE>;
             key-positions = <3 8>;
+            require-prior-idle-ms = <150>;
         };
 
         backslash {
             bindings = <&kp BACKSLASH>;
             key-positions = <2 9>;
+            require-prior-idle-ms = <150>;
         };
     };
 
@@ -178,10 +214,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB  &kp Q            &kp W            &kp F         &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &backspace
-&none    &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
-&none    &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                           &shift_caps   &htl 2 2           &kp SPACE    &kp RET  &htl 1 1      &mo 4
+&kp TAB    &kp Q            &kp W            &kp F              &kp P              &kp B        &kp J    &kp L           &kp U         &kp Y            &kp SEMICOLON  &backspace
+&kp GRAVE  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N    &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
+&kp TILDE  &kp Z            &kp X            &terminal_nav 2 C  &kp D              &kp V        &kp K    &kp H           &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
+                                             &shift_caps        &tap_dance_nav     &kp SPACE    &kp RET  &tap_dance_num  &mo 4
             >;
         };
 
@@ -193,28 +229,28 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans     &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
-&kp GRAVE  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
-&btd       &kp TILDE            &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &trans            &trans            &kp F12
-                                                        &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
+&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
+&trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
+&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &trans            &trans            &kp F12
+                                                     &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
+            >;
+        };
+
+        terminal_nav {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LC(H)  &kp LC(J)  &kp LC(K)  &kp LC(L)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
+                        &trans  &trans  &trans    &trans     &trans     &trans
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &tmux_h_spilt  &tmux_v_split  &trans    &kp LC(H)       &kp LC(J)       &kp LC(K)     &kp LC(L)  &trans  &trans
-&trans  &trans  &trans  &trans         &trans         &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans         &tmux_zoom     &trans    &trans          &kp HOME        &kp END       &trans     &trans  &trans
-                        &trans         &trans         &trans    &trans          &trans          &trans
-            >;
-        };
-
-        gaming {
-            bindings = <
-&kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
-&kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
-&kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &trans  &trans  &trans    &trans  &trans  &kp LGUI
+&trans  &kp N1      &kp N2  &kp N3  &kp N4  &kp N5           &kp N6          &kp N7          &kp N8        &kp N9     &kp N9  &trans
+&trans  &trans      &trans  &trans  &trans  &tmux_v_split    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
+&trans  &tmux_zoom  &trans  &trans  &trans  &tmux_h_spilt    &trans          &kp HOME        &kp END       &trans     &trans  &trans
+                            &trans  &trans  &trans           &trans          &trans          &trans
             >;
         };
 
@@ -224,6 +260,15 @@
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6   &kp F7   &kp F7   &kp F8  &kp F9  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &kp F10  &kp F11  &kp F12  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans   &trans   &trans
+            >;
+        };
+
+        gaming {
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
+&kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
+&kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &trans  &trans  &trans    &trans  &trans  &kp LGUI
             >;
         };
     };
