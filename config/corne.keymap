@@ -67,11 +67,11 @@
         htl_nav: htl {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold tap layer";
-            bindings = <&mo>, <&sl>;
+            bindings = <&mo>, <&tap_dance_nav>;
 
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
         };
         terminal_nav: terminal_nav {
             compatible = "zmk,behavior-hold-tap";
@@ -90,7 +90,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NAV";
             #binding-cells = <0>;
-            bindings = <&htl_nav 3 3>, <&tog 3>;
+            bindings = <&sl 3>, <&tog 3>;
+
+            tapping-term-ms = <150>;
         };
         htl_num: htl_num {
             compatible = "zmk,behavior-hold-tap";
@@ -187,6 +189,12 @@
         backslash {
             bindings = <&kp BACKSLASH>;
             key-positions = <2 9>;
+            require-prior-idle-ms = <150>;
+        };
+
+        colon {
+            bindings = <&kp COLON>;
+            key-positions = <10 9>;
             require-prior-idle-ms = <150>;
         };
     };
