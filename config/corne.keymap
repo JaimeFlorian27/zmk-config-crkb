@@ -194,8 +194,22 @@
 
         colon {
             bindings = <&kp COLON>;
-            key-positions = <10 9>;
+            key-positions = <31 32>;
             require-prior-idle-ms = <260>;
+        };
+
+        l_brace_nav {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <16 19>;
+            require-prior-idle-ms = <260>;
+            layers = <3>;
+        };
+
+        r-brace-nav {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <28 31>;
+            require-prior-idle-ms = <260>;
+            layers = <3>;
         };
     };
 
