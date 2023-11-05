@@ -122,6 +122,32 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 20 21 22 23 39 40 41 6 7 8 9 10 34 35 33 31 30 32 36 37 38>;
         };
+        turbo_home_row_l: turbo_home_row_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TURBO_HOME_ROW_L";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <100>;
+            quick-tap-ms = <50>;
+            flavor = "balanced";
+            require-prior-idle-ms = <50>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <18 19 20 21 22 23 39 40 41 6 7 8 9 10 34 35 33 31 30 32 36 37 38>;
+        };
+        turbo_home_row_r: turbo_home_row_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TURBO_HOME_ROW_R";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <100>;
+            quick-tap-ms = <50>;
+            flavor = "balanced";
+            require-prior-idle-ms = <45>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <24 12 0 25 26 3 2 14 1 13 15 27 17 5 4 28 16 29 36 37 38 39 40 41>;
+        };
     };
 
     combos {
@@ -226,6 +252,11 @@
             require-prior-idle-ms = <260>;
             layers = <3>;
         };
+
+        turbo_homerowmods {
+            bindings = <&tog 6>;
+            key-positions = <36 41>;
+        };
     };
 
     macros {
@@ -275,7 +306,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp LCTRL     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
+&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp CARET     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
 &trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
 &btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &trans            &trans            &kp F12
                                                      &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
@@ -315,6 +346,15 @@
 &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
 &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
                          &trans  &trans  &trans    &trans  &trans  &kp LGUI
+            >;
+        };
+
+        turbo_dcc {
+            bindings = <
+&trans  &trans                        &trans                        &trans                     &trans                          &trans    &trans  &trans                           &trans                     &trans                        &trans                         &trans
+&trans  &turbo_home_row_l LEFT_WIN A  &turbo_home_row_l LEFT_ALT R  &turbo_home_row_l LCTRL S  &turbo_home_row_l LEFT_SHIFT T  &trans    &trans  &turbo_home_row_r RIGHT_SHIFT N  &turbo_home_row_r RCTRL E  &turbo_home_row_r LEFT_ALT I  &turbo_home_row_r RIGHT_GUI O  &trans
+&trans  &trans                        &trans                        &trans                     &trans                          &trans    &trans  &trans                           &trans                     &trans                        &trans                         &trans
+                                                                    &trans                     &trans                          &trans    &trans  &trans                           &trans
             >;
         };
     };
