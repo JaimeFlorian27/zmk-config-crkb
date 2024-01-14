@@ -98,7 +98,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NAV";
             #binding-cells = <0>;
-            bindings = <&sl 2>, <&tog 2>;
+            bindings = <&sl 1>, <&tog 1>;
 
             tapping-term-ms = <150>;
         };
@@ -167,7 +167,7 @@
         compatible = "zmk,combos";
 
         gaming_combo {
-            bindings = <&tog 4>;
+            bindings = <&tog 5>;
             key-positions = <40 37>;
             require-prior-idle-ms = <260>;
         };
@@ -176,7 +176,7 @@
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 19>;
             require-prior-idle-ms = <260>;
-            layers = <1 0 3 4>;
+            layers = <1 0 2 5>;
         };
 
         minus {
@@ -189,7 +189,7 @@
             bindings = <&kp EQUAL>;
             key-positions = <28 31>;
             require-prior-idle-ms = <260>;
-            layers = <1 0 3 4>;
+            layers = <1 0 2 5>;
         };
 
         l_parenthesis {
@@ -256,14 +256,14 @@
             bindings = <&kp LEFT_BRACE>;
             key-positions = <16 19>;
             require-prior-idle-ms = <260>;
-            layers = <2>;
+            layers = <1>;
         };
 
         r-brace-nav {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <28 31>;
             require-prior-idle-ms = <260>;
-            layers = <2>;
+            layers = <1>;
         };
     };
 
@@ -293,15 +293,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        terminal_nav {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LC(H)  &kp LC(J)  &kp LC(K)  &kp LC(L)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
-                        &trans  &trans  &trans    &trans     &trans     &trans
-            >;
-        };
-
         default_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
@@ -312,16 +303,16 @@
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp F              &kp P  &kp B        &kp J    &kp L       &kp U      &kp Y    &kp SEMICOLON  &kp BACKSPACE
 &kp GRAVE  &kp A  &kp R  &kp S              &kp T  &kp G        &kp M    &kp N       &kp E      &kp I    &kp O          &kp SQT
-&kp LWIN   &kp Z  &kp X  &terminal_nav 0 C  &kp D  &kp V        &kp K    &kp H       &kp COMMA  &kp DOT  &kp FSLH       &kp ESC
-                         &kp LEFT_ALT       &mo 2  &kp SPACE    &kp RET  &kp LSHIFT  &kp LCTRL
+&kp LWIN   &kp Z  &kp X  &terminal_nav 3 C  &kp D  &kp V        &kp K    &kp H       &kp COMMA  &kp DOT  &kp FSLH       &kp ESC
+                         &kp LEFT_ALT       &mo 1  &kp SPACE    &kp RET  &kp LSHIFT  &kp LCTRL
             >;
         };
 
         nav {
             bindings = <
 &trans  &kp N1      &kp N2    &kp N3     &kp N4          &kp N5           &kp N6          &kp N7          &kp N8        &kp N9     &kp N0  &kp DELETE
-&trans  &tmux_zoom  &mo 3     &trans     &trans          &tmux_v_split    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
-&trans  &trans      &kp RALT  &kp LCTRL  &kp LEFT_SHIFT  &tmux_h_spilt    &trans          &kp HOME        &kp END       &mo 3      &trans  &trans
+&trans  &tmux_zoom  &mo 2     &trans     &trans          &tmux_v_split    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
+&trans  &trans      &kp RALT  &kp LCTRL  &kp LEFT_SHIFT  &tmux_h_spilt    &trans          &kp HOME        &kp END       &mo 2      &trans  &trans
                               &trans     &trans          &trans           &trans          &trans          &gresc
             >;
         };
@@ -332,6 +323,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        terminal_nav {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LC(H)  &kp LC(J)  &kp LC(K)  &kp LC(L)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
+                        &trans  &trans  &trans    &trans     &trans     &trans
             >;
         };
 
