@@ -23,6 +23,7 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 20 21 22 23 39 40 41 6 7 8 9 10 34 35 33 31 30 32 36 37 38>;
         };
+
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
             label = "Homerow mods right";
@@ -36,12 +37,14 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <24 12 0 25 26 3 2 14 1 13 15 27 17 5 4 28 16 29 36 37 38 39 40 41>;
         };
+
         btd: btd {
             compatible = "zmk,behavior-tap-dance";
             label = "Bluetooth tap dance";
             #binding-cells = <0>;
             bindings = <&bt BT_NXT>, <&bt BT_PRV>, <&none>, <&bt BT_CLR>;
         };
+
         gtm: gtm {
             compatible = "zmk,behavior-mod-morph";
             label = "Grave tilde modifier";
@@ -50,12 +53,14 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
         shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
             bindings = <&sk LEFT_SHIFT>, <&kp CAPSLOCK>;
         };
+
         backspace: backspace {
             compatible = "zmk,behavior-mod-morph";
             label = "BACKSPACE";
@@ -64,6 +69,7 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
         htl_nav: htl {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold tap layer";
@@ -73,6 +79,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
         };
+
         terminal_nav: terminal_nav {
             compatible = "zmk,behavior-hold-tap";
             label = "TERMINAL_NAV";
@@ -86,14 +93,16 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 21 20>;
         };
+
         tap_dance_nav: tap_dance_nav {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NAV";
             #binding-cells = <0>;
-            bindings = <&sl 3>, <&tog 3>;
+            bindings = <&sl 2>, <&tog 2>;
 
             tapping-term-ms = <150>;
         };
+
         htl_num: htl_num {
             compatible = "zmk,behavior-hold-tap";
             label = "HTL_NUM";
@@ -103,12 +112,14 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
         };
+
         tap_dance_num: tap_dance_num {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NUM";
             #binding-cells = <0>;
             bindings = <&htl_nav 1 3>, <&tog 1>;
         };
+
         hml_alt: hml_alt {
             compatible = "zmk,behavior-hold-tap";
             label = "HML_ALT";
@@ -122,6 +133,7 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 20 21 22 23 39 40 41 6 7 8 9 10 34 35 33 31 30 32 36 37 38>;
         };
+
         turbo_home_row_l: turbo_home_row_l {
             compatible = "zmk,behavior-hold-tap";
             label = "TURBO_HOME_ROW_L";
@@ -135,6 +147,7 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <18 19 20 21 22 23 39 40 41 6 7 8 9 10 34 35 33 31 30 32 36 37 38>;
         };
+
         turbo_home_row_r: turbo_home_row_r {
             compatible = "zmk,behavior-hold-tap";
             label = "TURBO_HOME_ROW_R";
@@ -154,7 +167,7 @@
         compatible = "zmk,combos";
 
         gaming_combo {
-            bindings = <&tog 5>;
+            bindings = <&tog 4>;
             key-positions = <40 37>;
             require-prior-idle-ms = <260>;
         };
@@ -163,7 +176,7 @@
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 19>;
             require-prior-idle-ms = <260>;
-            layers = <0 1 2 4 5>;
+            layers = <1 0 3 4>;
         };
 
         minus {
@@ -176,7 +189,7 @@
             bindings = <&kp EQUAL>;
             key-positions = <28 31>;
             require-prior-idle-ms = <260>;
-            layers = <0 1 2 4 5>;
+            layers = <1 0 3 4>;
         };
 
         l_parenthesis {
@@ -243,19 +256,14 @@
             bindings = <&kp LEFT_BRACE>;
             key-positions = <16 19>;
             require-prior-idle-ms = <260>;
-            layers = <3>;
+            layers = <2>;
         };
 
         r-brace-nav {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <28 31>;
             require-prior-idle-ms = <260>;
-            layers = <3>;
-        };
-
-        turbo_homerowmods {
-            bindings = <&tog 6>;
-            key-positions = <36 41>;
+            layers = <2>;
         };
     };
 
@@ -266,12 +274,14 @@
             bindings = <&kp LC(A) &kp BACKSLASH>;
             label = "TMUX_V_SPLIT";
         };
+
         tmux_h_spilt: tmux_h_spilt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(A) &kp MINUS>;
             label = "TMUX_H_SPILT";
         };
+
         tmux_zoom: tmux_zoom {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -283,36 +293,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&kp TAB    &kp Q            &kp W                &kp F              &kp P              &kp B        &kp J    &kp L         &kp U         &kp Y            &kp SEMICOLON  &kp BACKSPACE
-&kp GRAVE  &hml LEFT_GUI A  &hml_alt LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T  &kp G        &kp M    &hmr RSHFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RGUI O    &kp SQT
-&kp TILDE  &kp Z            &kp X                &terminal_nav 2 C  &kp D              &kp V        &kp K    &kp H         &kp COMMA     &kp DOT          &kp FSLH       &kp ESC
-                                                 &shift_caps        &htl_nav 3 3       &kp SPACE    &kp RET  &htl_num 1 1  &mo 4
-            >;
-        };
-
-        numbers {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&trans  &kp EXCLAMATION      &kp AT_SIGN             &kp HASH             &kp DOLLAR           &kp PERCENT         &kp CARET     &kp AMPERSAND  &kp ASTERISK           &kp F9            &kp F10           &trans
-&trans  &hml LMETA NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LCTRL NUMBER_3  &hml LSHFT NUMBER_4  &kp N5              &kp NUMBER_6  &hmr RSHFT N7  &hmr RIGHT_CONTROL N8  &hmr LEFT_ALT N9  &hmr LEFT_GUI N0  &kp F11
-&btd    &trans               &trans                  &kp C_VOL_DN         &kp C_VOLUME_UP      &kp K_CALCULATOR    &gtm          &trans         &trans                 &trans            &trans            &kp F12
-                                                     &trans               &trans               &kp SPACE           &kp RET       &trans         &kp RALT
-            >;
-        };
-
         terminal_nav {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans     &trans     &trans  &trans
@@ -322,21 +302,36 @@
             >;
         };
 
+        default_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp F              &kp P  &kp B        &kp J    &kp L       &kp U      &kp Y    &kp SEMICOLON  &kp BACKSPACE
+&kp GRAVE  &kp A  &kp R  &kp S              &kp T  &kp G        &kp M    &kp N       &kp E      &kp I    &kp O          &kp SQT
+&kp LWIN   &kp Z  &kp X  &terminal_nav 0 C  &kp D  &kp V        &kp K    &kp H       &kp COMMA  &kp DOT  &kp FSLH       &kp ESC
+                         &kp LEFT_ALT       &mo 2  &kp SPACE    &kp RET  &kp LSHIFT  &kp LCTRL
+            >;
+        };
+
         nav {
             bindings = <
-&trans  &kp N1      &kp N2  &kp N3  &kp N4  &kp N5           &kp N6          &kp N7          &kp N8        &kp N9     &kp N0  &kp DELETE
-&trans  &trans      &trans  &trans  &trans  &tmux_v_split    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
-&trans  &tmux_zoom  &trans  &trans  &trans  &tmux_h_spilt    &trans          &kp HOME        &kp END       &trans     &trans  &trans
-                            &trans  &trans  &trans           &trans          &trans          &trans
+&trans  &kp N1      &kp N2    &kp N3     &kp N4          &kp N5           &kp N6          &kp N7          &kp N8        &kp N9     &kp N0  &kp DELETE
+&trans  &tmux_zoom  &mo 3     &trans     &trans          &tmux_v_split    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans  &trans
+&trans  &trans      &kp RALT  &kp LCTRL  &kp LEFT_SHIFT  &tmux_h_spilt    &trans          &kp HOME        &kp END       &mo 3      &trans  &trans
+                              &trans     &trans          &trans           &trans          &trans          &gresc
             >;
         };
 
         function {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans   &trans   &trans   &trans  &trans  &trans
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6   &kp F7   &kp F7   &kp F8  &kp F9  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp F10  &kp F11  &kp F12  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans   &trans   &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
@@ -346,15 +341,6 @@
 &kp LSHFT  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp LALT
 &kp LCTRL  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
                          &trans  &trans  &trans    &trans  &trans  &kp LGUI
-            >;
-        };
-
-        turbo_dcc {
-            bindings = <
-&trans  &trans                        &trans                        &trans                     &trans                          &trans    &trans  &trans                           &trans                     &trans                        &trans                         &trans
-&trans  &turbo_home_row_l LEFT_WIN A  &turbo_home_row_l LEFT_ALT R  &turbo_home_row_l LCTRL S  &turbo_home_row_l LEFT_SHIFT T  &trans    &trans  &turbo_home_row_r RIGHT_SHIFT N  &turbo_home_row_r RCTRL E  &turbo_home_row_r LEFT_ALT I  &turbo_home_row_r RIGHT_GUI O  &trans
-&trans  &trans                        &trans                        &trans                     &trans                          &trans    &trans  &trans                           &trans                     &trans                        &trans                         &trans
-                                                                    &trans                     &trans                          &trans    &trans  &trans                           &trans
             >;
         };
     };
