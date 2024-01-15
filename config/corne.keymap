@@ -176,7 +176,7 @@
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 19>;
             require-prior-idle-ms = <260>;
-            layers = <1 0 2 5>;
+            layers = <0 2>;
         };
 
         minus {
@@ -189,7 +189,7 @@
             bindings = <&kp EQUAL>;
             key-positions = <28 31>;
             require-prior-idle-ms = <260>;
-            layers = <1 0 2 5>;
+            layers = <0>;
         };
 
         l_parenthesis {
