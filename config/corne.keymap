@@ -168,101 +168,101 @@
 
         gaming_combo {
             bindings = <&tog 4>;
-            key-positions = <40 37>;
-            require-prior-idle-ms = <260>;
+            key-positions = <0 11>;
+            require-prior-idle-ms = <150>;
         };
 
         underscore {
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 19>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
             layers = <0 2>;
         };
 
         minus {
             bindings = <&kp MINUS>;
             key-positions = <4 7>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         equals {
             bindings = <&kp EQUAL>;
             key-positions = <28 31>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
             layers = <0>;
         };
 
         l_parenthesis {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <15 20>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         l_bracket {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <14 21>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         l_brace {
             bindings = <&kp LEFT_BRACE>;
             key-positions = <13 22>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         r_parenthesis {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <27 32>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         r_bracket {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <26 33>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         r_brace {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <34 25>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         plus {
             bindings = <&kp PLUS>;
             key-positions = <5 6>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         pipe {
             bindings = <&kp PIPE>;
             key-positions = <3 8>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         backslash {
             bindings = <&kp BACKSLASH>;
             key-positions = <2 9>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         colon {
             bindings = <&kp COLON>;
             key-positions = <31 32>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
         };
 
         l_brace_nav {
             bindings = <&kp LEFT_BRACE>;
             key-positions = <16 19>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
             layers = <1>;
         };
 
         r-brace-nav {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <28 31>;
-            require-prior-idle-ms = <260>;
+            require-prior-idle-ms = <150>;
             layers = <1>;
         };
     };
@@ -346,10 +346,10 @@
 
         num_sym {
             bindings = <
-&trans  &trans  &kp N7  &kp N8  &kp N9  &kp MINUS        &kp PLUS  &trans     &trans     &trans    &trans        &kp DELETE
-&trans  &trans  &kp N4  &kp N5  &kp N6  &kp LS(UNDER)    &trans    &kp RSHFT  &kp RCTRL  &kp LALT  &kp LG(RGUI)  &trans
-&trans  &kp N0  &kp N1  &kp N2  &kp N3  &kp EQUAL        &trans    &trans     &trans     &trans    &trans        &trans
-                        &trans  &trans  &trans           &trans    &trans     &trans
+&trans  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)    &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp DELETE
+&trans  &trans        &trans      &trans         &trans        &trans           &trans         &kp RSHFT     &kp RCTRL     &kp LALT      &kp LG(RGUI)  &trans
+&trans  &trans        &trans      &trans         &trans        &trans           &trans         &trans        &trans        &trans        &trans        &trans
+                                  &trans         &trans        &trans           &trans         &trans        &trans
             >;
         };
     };
